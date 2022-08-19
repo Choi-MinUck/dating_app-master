@@ -1,7 +1,6 @@
 import 'package:dating_app/main.dart';
-import 'package:dating_app/model/profile.dart';
+import 'package:dating_app/model/card.dart';
 import 'package:dating_app/widgets/profile_card.dart';
-import 'package:dating_app/widgets/tag_widget.dart';
 import 'package:flutter/material.dart';
 
 class DragWidget extends StatefulWidget {
@@ -82,11 +81,7 @@ class _DragWidgetState extends State<DragWidget> {
         child: ValueListenableBuilder(
             valueListenable: widget.swipeNotifier,
             builder: (BuildContext context, Swipe swipe, Widget? child) {
-              return Stack(
-                children: [
-                  CardDeckButton4(card: widget.card),
-                ],
-              );
+              return CardDeckButton4(card: widget.card);
             }),
       ),
     );

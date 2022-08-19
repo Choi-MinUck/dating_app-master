@@ -1,5 +1,5 @@
 import 'package:dating_app/main.dart';
-import 'package:dating_app/model/profile.dart';
+import 'package:dating_app/model/card.dart';
 import 'package:dating_app/widgets/action_button_widget.dart';
 import 'package:dating_app/widgets/drag_widget.dart';
 import 'package:dating_app/widgets/profile_card.dart';
@@ -126,7 +126,7 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                     _animationController.forward();
                   },
                   icon: const Icon(
-                    Icons.close,
+                    Icons.arrow_left,
                     color: Colors.grey,
                   ),
                 ),
@@ -137,7 +137,7 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                     _animationController.forward();
                   },
                   icon: const Icon(
-                    Icons.favorite,
+                    Icons.arrow_right,
                     color: Colors.red,
                   ),
                 ),
@@ -170,6 +170,52 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
         ),
         Positioned(
           right: 0,
+          child: DragTarget<int>(
+            builder: (
+              BuildContext context,
+              List<dynamic> accepted,
+              List<dynamic> rejected,
+            ) {
+              return IgnorePointer(
+                child: Container(
+                  height: 700.0,
+                  width: 80.0,
+                  color: Colors.transparent,
+                ),
+              );
+            },
+            onAccept: (int index) {
+              setState(() {
+                draggableItems.removeAt(index);
+              });
+            },
+          ),
+        ),
+        Positioned(
+          top: 0,
+          child: DragTarget<int>(
+            builder: (
+              BuildContext context,
+              List<dynamic> accepted,
+              List<dynamic> rejected,
+            ) {
+              return IgnorePointer(
+                child: Container(
+                  height: 700.0,
+                  width: 80.0,
+                  color: Colors.transparent,
+                ),
+              );
+            },
+            onAccept: (int index) {
+              setState(() {
+                draggableItems.removeAt(index);
+              });
+            },
+          ),
+        ),
+        Positioned(
+          bottom: 0,
           child: DragTarget<int>(
             builder: (
               BuildContext context,
