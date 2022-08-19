@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:dating_app/widgets/background_curve_widget.dart';
 import 'package:dating_app/widgets/cards_stack_widget.dart';
 
 void main() => runApp(const MyApp());
@@ -11,10 +10,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey,
         body: Stack(
           children: const [
-            // BackgroudCurveWidget(),
             CardsStackWidget(),
           ],
         ),
